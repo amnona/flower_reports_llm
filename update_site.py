@@ -287,7 +287,7 @@ def update_site(website_url):
 
 	# render the map.html template with the variables to the file "map.html"
 	# Load the template environment
-	env = Environment(loader=FileSystemLoader('/Users/amnon/git/flower_reports_llm/templates'))
+	env = Environment(loader=FileSystemLoader('./flower_reports_llm/templates'))
 
 	# Load the template
 	template = env.get_template('map.html')
