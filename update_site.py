@@ -296,7 +296,7 @@ def update_site(website_url):
 	rendered_html = template.render(coords_list=json.dumps(coords), flower_ids=json.dumps(report_ids), descriptions=json.dumps(descriptions))
 
 	# Save the rendered HTML to a new file
-	with open('/Users/amnon/git/flower_reports_llm/output_map.html', 'w') as f:
+	with open('./flower_reports_llm/output_map.html', 'w') as f:
 		f.write(rendered_html)
 	
 
