@@ -35,6 +35,7 @@ const logger = {
 // Date formatting utility
 const dateUtils = {
     formatDate: function(date) {
+        return date;
         return new Intl.DateTimeFormat('he-IL').format(new Date(date));
     },
     

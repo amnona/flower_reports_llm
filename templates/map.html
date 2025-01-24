@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flower Map</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-        crossorigin=""/>
-     <link rel="stylesheet" href="/static/css/styles.css">
-     <link rel="icon" href="data:,">
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="icon" href="data:,">
 </head>
 <body>
     <div class="container">
@@ -31,7 +31,7 @@
                     </button>
                 </div>
             </div>
-            <div id="map"></div>
+            <div id="map" style="height: 500px;"></div>
         </div>
 
         <div class="tabs">
@@ -40,7 +40,7 @@
                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 2v20M2 12h20"></path>
                 </svg>
-                מפה
+                2מפה
             </button>
             <button class="tab-button" data-tab="stats">
                 <svg class="tab-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -61,36 +61,17 @@
                 דיווחים
             </button>
         </div>
-
-        <div id="map-tab" class="tab-content"></div>
-        <div id="stats-tab" class="tab-content hidden">
-             <div class="stats-grid">
-                <div class="stats-card">
-                    <h2>סטטיסטיקות כלליות</h2>
-                    <div id="generalStats"></div>
-                </div>
-                <div class="stats-card">
-                    <h2>מיקומים פופולריים</h2>
-                    <div id="topLocations"></div>
-                </div>
-                <div class="stats-card">
-                    <h2>דיווחים אחרונים</h2>
-                    <div id="recentReports"></div>
-                </div>
-                <div class="stats-card">
-                    <h2>מגמות חודשיות</h2>
-                    <canvas id="monthlyTrendsChart"></canvas>
-                </div>
-            </div>
-        </div>
-        <div id="reports-tab" class="tab-content hidden">
-            <h2>דיווחים</h2>
-        </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/pikaday.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Include Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+        crossorigin=""></script>
+    <!-- Include Leaflet.markercluster JavaScript -->
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+    <!-- Include your custom JavaScript file -->
     <script src="/static/js/utils.js"></script>
-    <script src="/static/js/statistics.js"></script>
     <script src="/static/js/FlowerMap.js"></script>
 </body>
 </html>

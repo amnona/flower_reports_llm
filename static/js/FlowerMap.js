@@ -1,10 +1,11 @@
 class FlowerMap {
     constructor() {
+        console.log("FlowerMap constructor"); // Added this line
         this.map = null;
         this.markerCluster = null;
         this.dateRange = { from: null, to: null };
         this.currentMarkers = [];
-        this.statistics = new FlowerStatistics();
+        // this.statistics = new FlowerStatistics();
         this.calendarVisible = false;
         this.currentCalendarDate = new Date(); // default to today's date for the calendar
         
@@ -142,8 +143,8 @@ class FlowerMap {
             const data = await response.json();
             console.log("Loaded data:", data); // Added this line
             this.processData(data);
-             this.updateLastReportDates();
-            this.statistics.updateStatistics(data, this.dateRange);
+            this.updateLastReportDates();
+            // this.statistics.updateStatistics(data, this.dateRange);
             
             flowerMapUtils.logger.info('Data loaded successfully', { count: data.length });
         } catch (error) {
@@ -166,13 +167,13 @@ class FlowerMap {
                       return new Date(current.date) > new Date(max.date) ? current : max;
                   });
                   const formattedDate = lastReport ? flowerMapUtils.dateUtils.formatDate(lastReport.date) : 'N/A';
-                document.getElementById(fileInfo.elementId).textContent = `עדכון אחרון: ${formattedDate}`;
+                // document.getElementById(fileInfo.elementId).textContent = `עדכון אחרון: ${formattedDate}`;
             } else {
-                document.getElementById(fileInfo.elementId).textContent = "לא ניתן לטעון נתונים";
+                // document.getElementById(fileInfo.elementId).textContent = "לא ניתן לטעון נתונים";
             }
           } catch (error) {
             flowerMapUtils.logger.error(`Failed to load data for ${fileInfo.path}`, error);
-                document.getElementById(fileInfo.elementId).textContent = "לא ניתן לטעון נתונים";
+                // document.getElementById(fileInfo.elementId).textContent = "לא ניתן לטעון נתונים";
           }
         }
     }
@@ -511,18 +512,22 @@ class FlowerMap {
     
 //     showError(message) {
 //         const errorDiv = document.createElement('div');
-//         errorDiv.className = 'error-message';
-//         errorDiv.textContent = message;
-//         document.querySelector('.card-header').appendChild(errorDiv);
-        
-//         setTimeout(() => {
+    showError(message) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.textContent = message;
+        document.querySelector('.card-header').appendChild(errorDiv);
 //             errorDiv.remove();
-//         }, 5000);
-//     }
-// }
-
+        setTimeout(() => {
+            errorDiv.remove();
+        }, 5000);
+    }
+}
 // // Initialize the map when the DOM is loaded
-// document.addEventListener('DOMContentLoaded', () => {
-//     window.flowerMap = new FlowerMap();
-// });
-};
+
+// Initialize the map when the DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    window.flowerMap = new FlowerMap();
+    console.log("FlowerMap initialized"); // Added this line
+});
+
